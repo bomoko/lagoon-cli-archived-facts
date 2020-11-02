@@ -26,12 +26,21 @@ var syncFilesCommand = &cobra.Command{
 			"hostname": viper.GetString("lagoons." + cmdLagoon + ".hostname"),
 			"port":     viper.GetString("lagoons." + cmdLagoon + ".port"),
 			"username": cmdProjectName + "-" + cmdProjectEnvironment,
-			//"rsh": "ssh -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 32222",
 		}
 
 		//Okay - so package import seems to work. Now we have to set up our types
 		//fmt.Println(filesync.SyncFiles())
-		x := filesync.SyncEnvironment{
+		fmt.Println(cmdProjectName + "-" + cmdProjectEnvironment)
+		//os.Exit(1)
+		x := filesync.SyncEnvironments{
+			Remote: filesync.SyncEnvironmentsRemote{
+				Username: cmdProjectName + "-" + cmdProjectEnvironment,
+				Hostname: viper.GetString("lagoons." + cmdLagoon + ".hostname"),
+				FilePattern: "/tmp",
+			},
+			Local: filesync.SyncEnvironmentLocal{
+				FilePattern: "/tmp/testing",
+			},
 			Rsh: "ssh -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 32222",
 			FilePattern: "testing this out here",
 			Deets: sshConfig,
