@@ -22,7 +22,8 @@ require (
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/pflag v1.0.3
 	github.com/spf13/viper v1.6.2
-	github.com/stretchr/testify v1.2.2
+	github.com/stretchr/testify v1.4.0
+	github.com/zloylos/grsync v0.0.0-20200714211139-9a0bc6952e30
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
 	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20191105091915-95d230a53780 // indirect
